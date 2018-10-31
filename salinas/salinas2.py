@@ -15,7 +15,7 @@ data = pd.read_csv('H:\data\salinas.csv',header=None)
 data = data.as_matrix()
 data_D = data[:,:-1]
 data_L = data[:,-1]
-data_train, data_test, label_train,label_test = train_test_split(data_D,data_L,test_size=0.7)
+data_train, data_test, label_train,label_test = train_test_split(data_D,data_L,test_size=0.8)
 # train the model
 clf =SVC(kernel='rbf',gamma=0.125,C=16)
 clf.fit(data_train,label_train)
