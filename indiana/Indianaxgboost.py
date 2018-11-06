@@ -5,7 +5,7 @@ from sklearn import metrics
 import pandas as pd
 # from xgboost import plot_importance
 # from matplotlib import  pyplot
-RATIO = 0.9
+RATIO = 0.1
 
 
 #split the data

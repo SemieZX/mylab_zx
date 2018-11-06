@@ -14,7 +14,7 @@ data_test = testdata[:,: -1]
 label_test = testdata[:,-1]
 
 
-clf = joblib.load('indianaknn.m')
+clf = joblib.load('indianasvm.m')
 predict_label = clf.predict(data_test)
 accuracy = metrics.accuracy_score(label_test,predict_label)*100
 kappa = metrics.cohen_kappa_score(label_test,predict_label)

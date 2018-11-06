@@ -15,7 +15,7 @@ data = pd.read_csv('H:\data\Y.csv',header=None)
 data = data.as_matrix()
 data_D = data[:,:-1]
 data_L = data[:,-1]
-data_train, data_test, label_train,label_test = train_test_split(data_D,data_L,test_size=0.9)
+data_train, data_test, label_train,label_test = train_test_split(data_D,data_L,test_size=0.1)
 
 clf =KNeighborsClassifier(n_neighbors = 16,algorithm = 'kd_tree')
 clf.fit(data_train,label_train)
