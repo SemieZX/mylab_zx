@@ -14,7 +14,7 @@ testdata = np.genfromtxt('H:\data\X.csv',delimiter=',')
 data_test = testdata[:,:-1]
 label_test = testdata[:,-1]
 
-pca = PCA(n_components=100,svd_solver='randomized')
+pca = PCA(n_components=100)
 pca.fit(data_test)
 data_test_pca = pca.transform(data_test)
 
@@ -45,7 +45,7 @@ for i in range(output_image.shape[0]):
             new_show[i][j] = predict_label[k]
             k += 1
 
-ground_truth = spectral.imshow(classes=output_image.astype(int), figsize=(5, 5))
-ground_predict = spectral.imshow(classes=new_show.astype(int), figsize=(5, 5))
+ground_truth = spectral.imshow(classes=output_image.astype(int), figsize=(3, 3))
+ground_predict = spectral.imshow(classes=new_show.astype(int), figsize=(3, 3))
 plt.show(ground_truth)
 plt.show(ground_predict)

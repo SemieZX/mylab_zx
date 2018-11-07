@@ -17,16 +17,17 @@ data = data.as_matrix()
 data_D = data[:,:-1] # 训练样本
 data_L = data[:,-1]  # 标签
 
-data_train, data_test, label_train,label_test = train_test_split(data_D,data_L,test_size=RATIO)
-pca = PCA(n_components=100,svd_solver='randomized')
-pca.fit(data_train)
-data_train_pca = pca.transform(data_train)
-data_test_pca = pca.transform(data_test)
+
+pca = PCA(n_components=100)
+pca.fit(data_D)
+data_origin_pca = pca.transform(data_D)
+data_train, data_test, label_train,label_test = train_test_split(data_origin_pca ,data_L,test_size=RATIO)
+
 
 clf =SVC(kernel='linear',gamma=0.125,C=4)
-clf.fit(data_train_pca,label_train)
+clf.fit(data_train,label_train)
 
-pred = clf.predict(data_test_pca)
+pred = clf.predict(data_test)
 accuracy = metrics.accuracy_score(label_test,pred)*100
 print(accuracy)
 joblib.dump(clf,"indianasvm_pca.m")
