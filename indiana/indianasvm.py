@@ -12,15 +12,19 @@ RATIO = 0.9
 
 #split the data
 
-data = pd.read_csv('H:\data\Y.csv',header=None)
-data = data.as_matrix()
+data = pd.read_csv('E:\data\Y.csv',header=None)
+data = data.values
 data_D = data[:,:-1] # 训练样本
 data_L = data[:,-1]  # 标签
 data_train, data_test, label_train,label_test = train_test_split(data_D,data_L,test_size=RATIO)
 
-clf =SVC(kernel='rbf',gamma=0.125,C=4)
+clf =SVC(kernel='linear') # kernel='rbf',gamma=0.125,C=4)
 clf.fit(data_train,label_train)
 pred = clf.predict(data_test)
 accuracy = metrics.accuracy_score(label_test,pred)*100
+kappa = metrics.cohen_kappa_score(label_test,pred)
+classify_report =  metrics.classification_report(label_test,pred)
 print(accuracy)
+print(kappa)
+print(classify_report)
 joblib.dump(clf,"indianasvm.m")

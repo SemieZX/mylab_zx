@@ -11,7 +11,7 @@ import pandas as pd
 
 #split the data
 
-data = pd.read_csv('H:\data\Y.csv',header=None)
+data = pd.read_csv('E:\data\Y.csv',header=None)
 data = data.as_matrix()
 data_D = data[:,:-1]
 data_L = data[:,-1]
@@ -21,5 +21,9 @@ clf =MLPClassifier(solver = 'lbfgs',alpha=1e-5,hidden_layer_sizes=(4,6,16),rando
 clf.fit(data_train,label_train)
 pred = clf.predict(data_test)
 accuracy = metrics.accuracy_score(label_test,pred)*100
+kappa = metrics.cohen_kappa_score(label_test,pred)
+classify_report =  metrics.classification_report(label_test,pred)
 print(accuracy)
+print(kappa)
+print(classify_report)
 joblib.dump(clf,"indianamlp.m")

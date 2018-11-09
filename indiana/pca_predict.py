@@ -6,15 +6,15 @@ import joblib
 from sklearn import metrics
 from sklearn.decomposition import PCA
 
-input_image = loadmat('H:\data\hyp_data.mat')['hyp_data']
-output_image = loadmat('H:\data\X.mat')['X']
+input_image = loadmat('E:\data\hyp_data.mat')['hyp_data']
+output_image = loadmat('E:\data\X.mat')['X']
 
-testdata = np.genfromtxt('H:\data\X.csv',delimiter=',')
+testdata = np.genfromtxt('E:\data\X.csv',delimiter=',')
 
 data_test = testdata[:,:-1]
 label_test = testdata[:,-1]
 
-pca = PCA(n_components=100)
+pca = PCA(n_components=30)
 pca.fit(data_test)
 data_test_pca = pca.transform(data_test)
 

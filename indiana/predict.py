@@ -6,15 +6,15 @@ import joblib
 from sklearn import metrics
 
 
-input_image = loadmat('H:\data\hyp_data.mat')['hyp_data']
-output_image = loadmat('H:\data\X.mat')['X']
+input_image = loadmat('E:\data\hyp_data.mat')['hyp_data']
+output_image = loadmat('E:\data\X.mat')['X']
 
-testdata = np.genfromtxt('H:\data\X.csv',delimiter=',')
+testdata = np.genfromtxt('E:\data\X.csv',delimiter=',')
 data_test = testdata[:,:-1]
 label_test = testdata[:,-1]
 #print(len(label_test)) 长度为10366
 
-clf = joblib.load('indianasvm_grid.m')
+clf = joblib.load('indianasvm.m')
 predict_label = clf.predict(data_test)
 # print(len(predict_label)) 长度为10366
 

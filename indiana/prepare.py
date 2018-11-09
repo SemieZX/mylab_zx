@@ -7,8 +7,8 @@ from sklearn import preprocessing
 import pandas as pd
 
 #load进去字典形式，进行定位
-input_image = loadmat('H:\data\hyp_data.mat')['hyp_data']
-output_image = loadmat('H:\data\X.mat')['X']
+input_image = loadmat('E:\data\hyp_data.mat')['hyp_data']
+output_image = loadmat('E:\data\X.mat')['X']
 
 #  测试出入输出形式
 print(input_image.shape)
@@ -65,7 +65,7 @@ data_L = new_datawithlabel_array[:,-1]
 
 new = np.column_stack((data_D,data_L))
 new_ = pd.DataFrame(new)
-new_.to_csv('H:\data\Y.CSV',header=False,index=False)
+new_.to_csv('E:\data\Y.CSV',header=False,index=False)
 # print(new.shape)  # 测试标准化后存储的数据(10366, 201)
 # print(new_)
 

@@ -10,7 +10,7 @@ RATIO = 0.9
 
 #split the data
 
-data = pd.read_csv('H:\data\Y.csv',header=None)
+data = pd.read_csv('E:\data\Y.csv',header=None)
 data = data.as_matrix()
 data_D = data[:,:-1]
 data_L = data[:,-1]
